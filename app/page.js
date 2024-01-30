@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <main className=" bg-orange-50 font-sans flex flex-col items-center min-h-screen min-w-screen gap-10 overflow-x-hidden relative">
+    <main className=" bg-white font-sans flex flex-col items-center min-h-screen min-w-screen gap-10 overflow-x-hidden relative">
       <Navbar/>
       <div className="flex flex-col lg:w-2/3 w-full p-4">
         <h2 className="font-serif text-center text-7xl font-black text-stone-900 lg:max-w-4xl">

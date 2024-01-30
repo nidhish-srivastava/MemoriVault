@@ -3,19 +3,20 @@ import Navbar from "@/components/Navbar";
 import CapsuleDialog from "@/components/CapsuleDialog";
 import { auth } from "../auth";
 import { redirect } from "next/navigation";
+import CapsuleModel from "@/models/capsule.model";
+import Link from "next/link";
 
 async function Capsules() {
   const session = await auth();
   if (!session?.user) {
     redirect("/");
   }
-  // const capsules = await db.timeCapsule.findMany({
-  //   where: { userId: session.user.id },
-  // });
+  const id = session.id._id
+  const capsules = await CapsuleModel.find({'data.userId' : id})
 
   return (
     <section className="p-4 pt-0 min-w-full h-full">
-      {/* {capsules.length === 0 ? ( */}
+      {capsules.length === 0 ? (
         <div className="flex flex-col justify-center items-center w-full gap-3 mt-4">
           <img
             src="https://illustrations.popsy.co/amber/surreal-hourglass.svg"
@@ -25,10 +26,10 @@ async function Capsules() {
           <h2 className="text-3xl font-bold text-center">
             You haven&apos;t created any time capsules yet.{" "}
           </h2>
-          {/* <CapsuleDialog /> */}
+          <CapsuleDialog />
         </div>
-      {/* ) : ( */}
-        {/* <div className="flex flex-col gap-6 w-full h-full min-h-screen">
+        ) : (
+         <div className="flex flex-col gap-6 w-full h-full min-h-screen">
           <div className="flex w-full flex-col lg:flex-row gap-3 justify-between lg:items-center">
             <h2 className="lg:text-3xl text-xl font-bold">Your capsules</h2>
             <CapsuleDialog />
@@ -42,7 +43,7 @@ async function Capsules() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-36 w-36 absolute -bottom-10 -right-10 text-orange-300/60"
+                    className="h-36 w-36 absolute -bottom-10 -right-10 text-white/60"
                     viewBox="0 0 24 24"
                   >
                     <g fill="none" stroke="currentColor" stroke-width="1.5">
@@ -55,8 +56,8 @@ async function Capsules() {
                     </g>
                   </svg>
                   <div className="flex flex-col gap-1 max-h-[90%] overflow-hidden">
-                    <h3 className="text-xl font-bold z-10">{capsule.name}</h3>
-                    <p className="text-stone-900 z-10">{capsule.description}</p>
+                    <h3 className="text-xl font-bold z-10">{capsule.data.name}</h3>
+                    <p className="text-stone-900 z-10">{capsule.data.description}</p>
                   </div>
                   <span className="text-sm text-stone-700 z-10">
                     {capsule.locked ? "Locked" : "Not locked"}
@@ -66,16 +67,16 @@ async function Capsules() {
             ))}
           </div>
         </div>
-      )} */}
+      )} 
     </section>
   );
 }
 
 export default function Dashboard() {
   return (
-    <main className="bg-orange-100 font-sans flex flex-col items-center min-h-screen min-w-screen gap-4 overflow-x-hidden relative">
+    <main className="bg-white font-sans flex flex-col items-center min-h-screen min-w-screen gap-4 overflow-x-hidden relative">
       <Navbar page="Dashboard" />
-      {/* <Capsules /> */}
+      <Capsules />
       {/* <Footer /> */}
     </main>
   );

@@ -1,7 +1,7 @@
 import { auth } from "@/app/auth";
 import SignIn from "./Auth";
 import UserMenu from "./UserMenu";
-import { Fjalla_One, Lalezar, Montserrat, Oswald, Raleway, Teko } from "next/font/google";
+import {Raleway } from "next/font/google";
 
 export async function SideStuff() {
   const session = await auth()

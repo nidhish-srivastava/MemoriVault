@@ -53,7 +53,7 @@ export default function UserMenu({ session }) {
       <div className="flex flex-col items-center relative" ref={menuRef}>
         <button onClick={() => setIsOpen(!isOpen)} ref={triggerRef}>
           <img
-            src={session?.user.image}
+            src={session.user.image}
             alt="avatar"
             className="w-10 h-10"
           />
@@ -61,7 +61,7 @@ export default function UserMenu({ session }) {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="absolute right-0 top-0 mt-16 bg-orange-200 border border-orange-300 z-[10] p-4"
+              className="absolute right-0 top-0 mt-16 bg-white border border-orange-300 z-[10] p-4"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
@@ -77,7 +77,7 @@ export default function UserMenu({ session }) {
                   <Link
                     key={label}
                     href={href}
-                    className="text-stone-900 hover:bg-orange-300/60 px-2 py-1"
+                    className="text-stone-900 hover:bg-orange-100/60 px-2 py-1"
                   >
                     {label}
                   </Link>
@@ -85,7 +85,7 @@ export default function UserMenu({ session }) {
               </div>
               <div className="my-2 w-full border-t border-orange-300" />
               <button
-                className="text-stone-900 hover:bg-orange-300/60 px-2 py-1 w-full text-left"
+                className="text-stone-900 hover:bg-orange-100/60 px-2 py-1 w-full text-left"
                 onClick={() => signOut()}
               >
                 Sign out
