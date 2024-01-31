@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
+    "canvas-confetti": "^1.9.2",
     "framer-motion": "^11.0.3",
     "mongoose": "^8.1.1",
     "next": "14.1.0",

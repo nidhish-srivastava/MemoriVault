@@ -12,7 +12,7 @@ async function Capsules() {
     redirect("/");
   }
   const id = session.id._id
-  const capsules = await CapsuleModel.find({'data.userId' : id})
+  const capsules = await CapsuleModel.find({userId : id})
 
   return (
     <section className="p-4 pt-0 min-w-full h-full">
@@ -49,15 +49,15 @@ async function Capsules() {
                     <g fill="none" stroke="currentColor" stroke-width="1.5">
                       <path
                         stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinejoin="round"
                         d="M12 8v4l2.5 2.5"
                       />
                       <path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z" />
                     </g>
                   </svg>
                   <div className="flex flex-col gap-1 max-h-[90%] overflow-hidden">
-                    <h3 className="text-xl font-bold z-10">{capsule.data.name}</h3>
-                    <p className="text-stone-900 z-10">{capsule.data.description}</p>
+                    <h3 className="text-xl font-bold z-10">{capsule.name}</h3>
+                    <p className="text-stone-900 z-10">{capsule.description}</p>
                   </div>
                   <span className="text-sm text-stone-700 z-10">
                     {capsule.locked ? "Locked" : "Not locked"}
