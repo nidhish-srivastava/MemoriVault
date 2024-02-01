@@ -11,9 +11,6 @@ export const authConfig = {
   ],
     callbacks: {
       async jwt({ token ,user}) {
-        // save the username
-        // console.log("user1",user);
-        
         if (token) {
           token.username = token.email.split("@")[0]
           const fname = token.name.split(" ")[0]

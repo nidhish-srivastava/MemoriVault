@@ -48,7 +48,7 @@ async function Capsules() {
                   >
                     <g fill="none" stroke="currentColor" stroke-width="1.5">
                       <path
-                        stroke-linecap="round"
+                        strokeLinecap="round"
                         strokeLinejoin="round"
                         d="M12 8v4l2.5 2.5"
                       />

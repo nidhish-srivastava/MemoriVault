@@ -136,7 +136,7 @@ export default async function Page({ params }) {
                 />
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
+                  strokeLinecap="round"
                   stroke-width="1.5"
                   d="M7 4V2.5M17 4V2.5M2.5 9h19"
                 />
@@ -176,11 +176,11 @@ export default async function Page({ params }) {
               <g fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M21 13a9 9 0 1 1-18 0a9 9 0 0 1 18 0Z" />
                 <path
-                  stroke-linecap="round"
+                  strokeLinecap="round"
                   stroke-linejoin="round"
                   d="M12 13V9"
                 />
-                <path stroke-linecap="round" d="M10 2h4" />
+                <path strokeLinecap="round" d="M10 2h4" />
               </g>
             </svg>
             Capsule opens ~{" "}

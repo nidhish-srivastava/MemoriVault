@@ -14,7 +14,6 @@ export default function CapsuleCountdown({
   // years, months, days, hours, minutes, seconds
   const [timeLeft, setTimeLeft] = useState([0, 0, 0, 0, 0, 0]);
   const [unlocking, setUnlocking] = useState(false);
-  console.log(openingDate);
   useEffect(() => {
     if (openingDate.getTime() <= Date.now()) return;
     const getTimeLeft = (openingDate) => {
@@ -65,7 +64,6 @@ export default function CapsuleCountdown({
     );
   }
 
-  console.log(paddedTimeLeft);
 
   return (
     <p
