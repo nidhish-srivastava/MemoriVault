@@ -25,7 +25,7 @@ export const authConfig = {
         if (id==null) {
           id = await createUser(session.user)
         }
-        session.id = id;
+        session.id = id._id
         return session
       },
     },

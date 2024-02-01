@@ -11,8 +11,7 @@ async function Capsules() {
   if (!session?.user) {
     redirect("/");
   }
-  const id = session.id._id
-  const capsules = await CapsuleModel.find({userId : id})
+  const capsules = await CapsuleModel.find({userId : session.id})
 
   return (
     <section className="p-4 pt-0 min-w-full h-full">
