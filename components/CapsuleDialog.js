@@ -53,8 +53,8 @@ export default function CapsuleDialog() {
                 id="name"
                 required
                 placeholder="Give your time capsule a name"
-                // className="p-2 outline-none bg-orange-50 focus:ring-2 ring-orange-500 placeholder:text-stone-500"
-                className="p-2 outline-none  focus:ring-1 ring-slate-500/50 placeholder:text-stone-700"
+                className="p-2 outline-none bg-orange-50 focus:ring-2 ring-orange-500 placeholder:text-stone-500"
+                // className="p-2 outline-none  focus:ring-1 ring-slate-500/50 placeholder:text-stone-700"
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -63,7 +63,8 @@ export default function CapsuleDialog() {
                 name="description"
                 id="description"
                 placeholder="Describe your time capsule"
-                className="p-2 outline-none focus:ring-1 ring-slate-500/50 placeholder:text-stone-700"
+                className="p-2 outline-none bg-orange-50 focus:ring-2 ring-orange-500 placeholder:text-stone-500"
+                // className="p-2 outline-none focus:ring-1 ring-slate-500/50 placeholder:text-stone-700"
               />
             </div>
             <div className="flex justify-end">

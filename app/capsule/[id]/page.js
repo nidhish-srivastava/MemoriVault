@@ -10,6 +10,8 @@ import { redirect } from "next/navigation";
 import CapsuleModel from "@/models/capsule.model";
 import LockDialog from "@/components/LockDialog";
 import CapsuleCountdown from "@/components/CapsuleCountdown";
+import UploadDialog from "@/components/UploadDialog";
+import NoteDialog from "@/components/NoteDialog";
 
 async function getCapsuleData(id) {
   const session = await auth();
@@ -33,7 +35,6 @@ export default async function Page({ params }) {
           <h2 className="lg:text-3xl text-xl font-bold">{capsule?.name}</h2>
           {!capsule.locked ? (
             <div className="flex gap-3 items-center">
-              {/* <LockDialog capsuleData={JSON.stringify(capsule)} /> */}
               <LockDialog capsule={capsule} />
               {/* <CapsuleContent capsule={capsule} /> */}
             </div>
@@ -51,7 +52,6 @@ export default async function Page({ params }) {
             </div>
           )}
         </div>
-        {/* 
         <div className="flex flex-col gap-3">
           <p>{capsule?.description}</p>
           <div className="flex lg:flex-row flex-col gap-3 w-full">
@@ -69,12 +69,12 @@ export default async function Page({ params }) {
                 </svg>
                 <h2 className="text-8xl font-black leading-none z-10">
                   {capsule?.items
-                    .filter((item) => item.type === "file")
+                    ?.filter((item) => item.type === "file")
                     .length.toString()
                     .padStart(2, "0")}
                 </h2>
                 <p className="text-3xl font-bold z-10 text-stone-700">
-                  {capsule?.items.filter((item) => item.type === "file")
+                  {capsule?.items?.filter((item) => item.type === "file")
                     .length === 1
                     ? "File"
                     : "Files"}
@@ -93,12 +93,12 @@ export default async function Page({ params }) {
                 </svg>
                 <h2 className="text-8xl font-black leading-none z-10">
                   {capsule?.items
-                    .filter((item) => item.type === "note")
+                    ?.filter((item) => item.type === "note")
                     .length.toString()
                     .padStart(2, "0")}
                 </h2>
                 <p className="text-3xl font-bold z-10 text-stone-700">
-                  {capsule?.items.filter((item) => item.type === "note")
+                  {capsule?.items?.filter((item) => item.type === "note")
                     .length === 1
                     ? "Note"
                     : "Notes"}
@@ -131,13 +131,13 @@ export default async function Page({ params }) {
               <g fill="none">
                 <path
                   stroke="currentColor"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   d="M2 12c0-3.771 0-5.657 1.172-6.828C4.343 4 6.229 4 10 4h4c3.771 0 5.657 0 6.828 1.172C22 6.343 22 8.229 22 12v2c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z"
                 />
                 <path
                   stroke="currentColor"
                   strokeLinecap="round"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   d="M7 4V2.5M17 4V2.5M2.5 9h19"
                 />
                 <path
@@ -173,7 +173,7 @@ export default async function Page({ params }) {
               className="inline-block mr-2 w-6 h-6 text-stone-700"
               viewBox="0 0 24 24"
             >
-              <g fill="none" stroke="currentColor" stroke-width="1.5">
+              <g fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M21 13a9 9 0 1 1-18 0a9 9 0 0 1 18 0Z" />
                 <path
                   strokeLinecap="round"
@@ -188,7 +188,7 @@ export default async function Page({ params }) {
               ? capsule?.openingDate.toLocaleDateString("en-US")
               : "N/A"}
           </p>
-        </div> */}
+        </div> 
       </section>
 
     </main>

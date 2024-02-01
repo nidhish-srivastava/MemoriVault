@@ -46,7 +46,7 @@ async function Capsules() {
                     className="h-36 w-36 absolute -bottom-10 -right-10 text-white/60"
                     viewBox="0 0 24 24"
                   >
-                    <g fill="none" stroke="currentColor" stroke-width="1.5">
+                    <g fill="none" stroke="currentColor" strokeWidth="1.5">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
