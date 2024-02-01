@@ -10,22 +10,19 @@ export const authConfig = {
     })
   ],
     callbacks: {
-      async jwt({ token ,user}) {
-        if (token) {
-          token.username = token.email.split("@")[0]
-          const fname = token.name.split(" ")[0]
-          // format the name properly
-          token.fname = fname[0].toUpperCase() + fname.slice(1).toLowerCase()
-        }
-        return token
-      },
-      async session({ session, token}) {
-        session.username = token.username
-        session.fname = token.fname
-        session.bio = ''
-        let id = await userExists(token.username);
+      // async jwt({ token ,user}) {
+      //   if (token) {
+      //     token.username = token.email.split("@")[0]
+      //     const fname = token.name.split(" ")[0]
+      //     // format the name properly
+      //     token.fname = fname[0].toUpperCase() + fname.slice(1).toLowerCase()
+      //   }
+      //   return token
+      // },
+      async session({ session}) {
+        let id = await userExists(session.user.email);
         if (id==null) {
-          id = await createUser({ username: session.username, name: session.fname, dp: token.picture })
+          id = await createUser(session.user)
         }
         session.id = id;
         return session

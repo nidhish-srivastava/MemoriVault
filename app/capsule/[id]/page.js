@@ -1,17 +1,13 @@
 import Navbar from "@/components/Navbar";
-// import { db } from "@/app/lib/db";
 import { auth } from "@/app/auth";
 import { redirect } from "next/navigation";
-// import UploadDialog from "@/app/components/upload-dialog";
-// import NoteDialog from "@/app/components/note-dialog";
-// import LockDialog from "@/app/components/lock-dialog";
-// import CapsuleCountdown from "@/app/components/countdown";
-// import CapsuleContent from "@/app/components/capsule-content";
 import CapsuleModel from "@/models/capsule.model";
 import LockDialog from "@/components/LockDialog";
 import CapsuleCountdown from "@/components/CapsuleCountdown";
 import UploadDialog from "@/components/UploadDialog";
 import NoteDialog from "@/components/NoteDialog";
+import CapsuleContent from "@/components/CapsuleContent";
+import ItemModel from "@/models/item.model";
 
 async function getCapsuleData(id) {
   const session = await auth();
@@ -22,9 +18,19 @@ async function getCapsuleData(id) {
   return capsule
 }
 
+async function getCapsuleItems(id){
+  const session = await auth();
+  if (!session?.user) {
+    redirect("/");
+  }
+  const capsuleItems = await ItemModel.find({timeCapsuleId : id})
+  return capsuleItems
+}
+
 export default async function Page({ params }) {
   const capsule = await getCapsuleData(params.id)
-  if (!capsule) {
+  const capsuleItems = await getCapsuleItems(params.id)
+  if (!capsule || !capsuleItems) {
     redirect("/");
   }
   return (
@@ -36,7 +42,7 @@ export default async function Page({ params }) {
           {!capsule.locked ? (
             <div className="flex gap-3 items-center">
               <LockDialog capsule={capsule} />
-              {/* <CapsuleContent capsule={capsule} /> */}
+              <CapsuleContent capsule={capsule} capsuleItems={capsuleItems}/>
             </div>
           ) : (
             <div className="flex flex-col gap-1">
@@ -68,13 +74,13 @@ export default async function Page({ params }) {
                   />
                 </svg>
                 <h2 className="text-8xl font-black leading-none z-10">
-                  {capsule?.items
+                  {capsuleItems
                     ?.filter((item) => item.type === "file")
                     .length.toString()
                     .padStart(2, "0")}
                 </h2>
                 <p className="text-3xl font-bold z-10 text-stone-700">
-                  {capsule?.items?.filter((item) => item.type === "file")
+                  {capsuleItems?.filter((item) => item.type === "file")
                     .length === 1
                     ? "File"
                     : "Files"}
@@ -92,13 +98,13 @@ export default async function Page({ params }) {
                   />
                 </svg>
                 <h2 className="text-8xl font-black leading-none z-10">
-                  {capsule?.items
+                  {capsuleItems
                     ?.filter((item) => item.type === "note")
                     .length.toString()
                     .padStart(2, "0")}
                 </h2>
                 <p className="text-3xl font-bold z-10 text-stone-700">
-                  {capsule?.items?.filter((item) => item.type === "note")
+                  {capsuleItems?.filter((item) => item.type === "note")
                     .length === 1
                     ? "Note"
                     : "Notes"}

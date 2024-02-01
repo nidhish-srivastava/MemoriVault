@@ -14,11 +14,7 @@ const navLinks = [
   {
     label: "Dashboard",
     href: "/dashboard",
-  },
-  {
-    label: "Settings",
-    href: "/settings",
-  },
+  }
 ];
 
 export default function UserMenu({ session }) {
