@@ -6,9 +6,7 @@ const r = new Resend(process.env.RESEND_API_KEY)
 
 
 export async function GET() {
-  if (Request.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
-    return Response.status(401).end('Unauthorized');
-  }
+ 
     const capsules = await CapsuleModel.find();
   
     const today = new Date();

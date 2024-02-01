@@ -3,6 +3,7 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
 export const authConfig = {
+  // site : process.env.NEXTAUTH_URL,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID ?? "",
@@ -26,7 +27,7 @@ export const authConfig = {
         }
         session.id = id;
         return session
-      }
+      },
     },
 };
 
