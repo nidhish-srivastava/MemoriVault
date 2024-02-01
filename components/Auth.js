@@ -8,7 +8,7 @@ export default function SignIn({ label }) {
       className="px-3 py-2 text-lg bg-orange-700 text-stone-50 max-w-max"
       onClick={() => {
         signIn("google", {
-          callbackUrl: "/dashboard",
+          callbackUrl: "https://reminx.vercel.app/dashboard",
         });
       }}
     >
