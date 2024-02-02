@@ -9,3 +9,7 @@ Unlock the door to your memories and secrets with Reminx. A secure and intimate 
 * Javascript as the language
 
 * TailwindCSS and Headlessui for Styling
+
+* NextAuth for authentication
+
+* Packages like Framer-motion, sonner, canvas-confetti, react-dropzone for a better ux and dx
