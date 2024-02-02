@@ -5,13 +5,20 @@ import { auth } from "../auth";
 import { redirect } from "next/navigation";
 import CapsuleModel from "@/models/capsule.model";
 import Link from "next/link";
+import { connectToDB } from "@/lib/dbConnect";
 
 async function Capsules() {
   const session = await auth();
   if (!session?.user) {
     redirect("/");
   }
-  const capsules = await CapsuleModel.find({userId : session.id})
+  let capsules
+  try {
+    connectToDB()
+    capsules = await CapsuleModel.find({userId : session.user.email})
+  } catch (error) {
+    
+  }
 
   return (
     <section className="p-4 pt-0 min-w-full h-full">
