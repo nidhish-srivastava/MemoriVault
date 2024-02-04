@@ -97,15 +97,16 @@ export default function CapsuleContent({
                         {item.type === "note" ? (
                           <ViewNote note={item.notes} />
                         ) : (
-                          <a
-                            href={item?.mediaUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-stone-900"
-                            title="view file"
-                          >
-                            <LinkIcon />
-                          </a>
+                          // <a
+                          //   href={item?.mediaUrl}
+                          //   target="_blank"
+                          //   rel="noopener noreferrer"
+                          //   className="hover:text-stone-900"
+                          //   title="view file"
+                          // >
+                          //   <LinkIcon />
+                          // </a>
+                          null
                         )}
                         {item.type === "note" ? (
                           <button
@@ -117,17 +118,20 @@ export default function CapsuleContent({
                           >
                             <CopyIcon />
                           </button>
-                        ) : (
-                          <button
-                            className="max-w-max hover:text-stone-900 focus:outline-none"
-                            title="copy link"
-                            onClick={() =>
-                              downloadFileFromURL(item?.mediaUrl)
-                            }
-                          >
-                            <DownloadIcon />
-                          </button>
-                        )}
+                        ) :
+                        //  (
+                        //   <button
+                        //     className="max-w-max hover:text-stone-900 focus:outline-none"
+                        //     title="copy link"
+                        //     onClick={() =>
+                        //       downloadFileFromURL(item?.mediaUrl)
+                        //     }
+                        //   >
+                        //     <DownloadIcon />
+                        //   </button>
+                        // )
+                        null
+                        }
                       </div>
                     </div>
                   </div>
