@@ -36,7 +36,7 @@ export default function SlideOver({
                   leaveFrom="translate-x-0"
                   leaveTo="translate-x-full"
                 >
-                  <Dialog.Panel className="overflow-hidden bg-orange-200 p-6 text-left align-middle shadow-xl transition-all w-screen max-w-2xl">
+                  <Dialog.Panel className="overflow-y-auto bg-orange-200 p-6 text-left align-middle shadow-xl transition-all w-screen max-w-2xl">
                     {children}
                   </Dialog.Panel>
                 </Transition.Child>

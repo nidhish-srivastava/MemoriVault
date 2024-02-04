@@ -8,6 +8,7 @@ import UploadDialog from "@/components/UploadDialog";
 import NoteDialog from "@/components/NoteDialog";
 import CapsuleContent from "@/components/CapsuleContent";
 import ItemModel from "@/models/item.model";
+import Test from "@/components/Test";
 
 async function getCapsuleData(id) {
   const session = await auth();
@@ -166,9 +167,9 @@ export default async function Page({ params }) {
               />
               <path
                 fill="currentColor"
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M5.25 9.303V8a6.75 6.75 0 0 1 13.5 0v1.303c.227.016.44.036.642.064c.9.12 1.658.38 2.26.981c.602.602.86 1.36.982 2.26c.116.867.116 1.97.116 3.337v.11c0 1.367 0 2.47-.116 3.337c-.122.9-.38 1.658-.982 2.26c-.602.602-1.36.86-2.26.982c-.867.116-1.97.116-3.337.116h-8.11c-1.367 0-2.47 0-3.337-.116c-.9-.122-1.658-.38-2.26-.982c-.602-.602-.86-1.36-.981-2.26c-.117-.867-.117-1.97-.117-3.337v-.11c0-1.367 0-2.47.117-3.337c.12-.9.38-1.658.981-2.26c.602-.602 1.36-.86 2.26-.981a9.55 9.55 0 0 1 .642-.064M6.75 8a5.25 5.25 0 0 1 10.5 0v1.253c-.373-.003-.772-.003-1.195-.003h-8.11c-.423 0-.821 0-1.195.003zm-1.942 2.853c-.734.099-1.122.28-1.399.556c-.277.277-.457.665-.556 1.4c-.101.755-.103 1.756-.103 3.191c0 1.435.002 2.436.103 3.192c.099.734.28 1.122.556 1.399c.277.277.665.457 1.4.556c.754.101 1.756.103 3.191.103h8c1.435 0 2.436-.002 3.192-.103c.734-.099 1.122-.28 1.399-.556c.277-.277.457-.665.556-1.4c.101-.755.103-1.756.103-3.191c0-1.435-.002-2.437-.103-3.192c-.099-.734-.28-1.122-.556-1.399c-.277-.277-.665-.457-1.4-.556c-.755-.101-1.756-.103-3.191-.103H8c-1.435 0-2.437.002-3.192.103"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               />
             </svg>
             Capsule locked ~ {capsule?.locked ? "yes" : "no"}
@@ -183,7 +184,7 @@ export default async function Page({ params }) {
                 <path d="M21 13a9 9 0 1 1-18 0a9 9 0 0 1 18 0Z" />
                 <path
                   strokeLinecap="round"
-                  stroke-linejoin="round"
+                  strokeLinejoin="round"
                   d="M12 13V9"
                 />
                 <path strokeLinecap="round" d="M10 2h4" />
