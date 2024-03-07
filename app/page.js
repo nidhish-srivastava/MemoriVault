@@ -7,14 +7,13 @@ export default function Home() {
     <main className=" bg-white font-sans flex flex-col items-center min-h-screen min-w-screen gap-10 overflow-x-hidden relative">
       <Navbar/>
       <div className="flex flex-col lg:w-2/3 w-full p-4">
-        <h2 className="font-serif text-center text-7xl font-black text-stone-900 lg:max-w-4xl">
+        <h2 className="font-serif text-center text-6xl sm:text-7xl font-black text-stone-900 lg:max-w-4xl">
           Your life&apos;s{" "}
           <span className="text-orange-900">time-travelling</span> odyssey starts
           here.
         </h2>
         <p className="text-xl font-light mt-3 text-center">
-          Create your own virtual time capsules that take you back to the
-          moments that matter.
+        With MemoriVault, you can securely store your most sensitive information, memories, and secrets, locking them away until the perfect moment arises. Whether it's cherished memories, vital passwords, or confidential access keys, MemoriVault ensures they're safely stored, ready to be unlocked when the time is right. 
         </p>
       </div>
       <div className="grid grid-cols-5 gap-10  py-4 w-[95%] mx-auto">
