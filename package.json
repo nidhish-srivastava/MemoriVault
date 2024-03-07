@@ -21,6 +21,7 @@
     "react-dom": "^18",
     "react-dropzone": "^14.2.3",
     "react-image-file-resizer": "^0.4.8",
+    "react-loading-skeleton": "^3.4.0",
     "resend": "^3.1.0",
     "sonner": "^1.4.0"
   },

@@ -11,3 +11,8 @@
     text-wrap: balance;
   }
 }
+
+.skeleton-loading{
+  width: 80%;
+  margin: 4rem auto;
+}

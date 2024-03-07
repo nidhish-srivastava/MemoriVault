@@ -8,19 +8,24 @@ import { DownloadIcon } from "./Icons/Download";
 import { LinkIcon } from "./Icons/Link";
 import { CopyIcon } from "./Icons/Copy";
 import ViewNote from "./ViewNote";
+import Image from "next/image";
 
 export default function CapsuleContent({
   capsule,capsuleItems
 }) {
   const [open, setOpen] = useState(false);
 
-  const downloadFileFromURL = async (url) => {
+  const downloadFileFromURL = async (url,description) => {
     const link = document.createElement("a");
     const res = await fetch(url);
     const file = await res.blob();
     link.href = window.URL.createObjectURL(file);
-    // grab the filename from the url
-    link.download = url.substring(url.lastIndexOf("/") + 1);
+    if(description=="No description"){
+      link.download  = 'image.jpg'
+    }
+    else{
+      link.download = description?.split(" ")[0]
+    }
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -63,22 +68,25 @@ export default function CapsuleContent({
                       </span>
                     </div>
                     {item.type === "file" ? (
-                      <p className="text-center text-orange-400/60 overflow-hidden h-[80%] w-full flex justify-center items-center">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-32 w-32"
-                          viewBox="0 0 24 24"
-                        >
-                          <g
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                          >
-                            <path d="M3 10c0-3.771 0-5.657 1.172-6.828C5.343 2 7.229 2 11 2h2c3.771 0 5.657 0 6.828 1.172C21 4.343 21 6.229 21 10v4c0 3.771 0 5.657-1.172 6.828C18.657 22 16.771 22 13 22h-2c-3.771 0-5.657 0-6.828-1.172C3 19.657 3 17.771 3 14z" />
-                            <path strokeLineCap="round" d="M8 10h8m-8 4h5" />
-                          </g>
-                        </svg>
-                      </p>
+                      // <p className="text-center text-orange-400/60 overflow-hidden h-[80%] w-full flex justify-center items-center">
+                      //   <svg
+                      //     xmlns="http://www.w3.org/2000/svg"
+                      //     className="h-32 w-32"
+                      //     viewBox="0 0 24 24"
+                      //   >
+                      //     <g
+                      //       fill="none"
+                      //       stroke="currentColor"
+                      //       stroke-width="1.5"
+                      //     >
+                      //       <path d="M3 10c0-3.771 0-5.657 1.172-6.828C5.343 2 7.229 2 11 2h2c3.771 0 5.657 0 6.828 1.172C21 4.343 21 6.229 21 10v4c0 3.771 0 5.657-1.172 6.828C18.657 22 16.771 22 13 22h-2c-3.771 0-5.657 0-6.828-1.172C3 19.657 3 17.771 3 14z" />
+                      //       <path strokeLineCap="round" d="M8 10h8m-8 4h5" />
+                      //     </g>
+                      //   </svg>
+                      // </p>
+                      <div className="flex justify-center">
+                      <Image src={item.image} alt="" width={80} height={80} />
+                      </div>
                     ) : (
                       <p className="flex flex-col gap-3 break-words h-[90%] overflow-hidden">
                         {item.notes}
@@ -119,18 +127,18 @@ export default function CapsuleContent({
                             <CopyIcon />
                           </button>
                         ) :
-                        //  (
-                        //   <button
-                        //     className="max-w-max hover:text-stone-900 focus:outline-none"
-                        //     title="copy link"
-                        //     onClick={() =>
-                        //       downloadFileFromURL(item?.mediaUrl)
-                        //     }
-                        //   >
-                        //     <DownloadIcon />
-                        //   </button>
-                        // )
-                        null
+                         (
+                          <button
+                            className="max-w-max hover:text-stone-900 focus:outline-none"
+                            title="copy link"
+                            onClick={() =>
+                              downloadFileFromURL(item?.image,item.description ? item.description : "No description")
+                            }
+                          >
+                            <DownloadIcon />
+                          </button>
+                        )
+                        // null
                         }
                       </div>
                     </div>
