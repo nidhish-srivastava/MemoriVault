@@ -8,7 +8,6 @@ import UploadDialog from "@/components/UploadDialog";
 import NoteDialog from "@/components/NoteDialog";
 import CapsuleContent from "@/components/CapsuleContent";
 import ItemModel from "@/models/item.model";
-import Test from "@/components/Test";
 
 async function getCapsuleData(id) {
   const session = await auth();

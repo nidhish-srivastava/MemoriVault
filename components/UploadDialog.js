@@ -6,8 +6,6 @@ import { useFormStatus } from "react-dom";
 import { toast } from "sonner";
 import { XIcon } from "./Icons/XIcon";
 import { SpinnerIcon } from "./Icons/Spinner";
-import Dropzone from "react-dropzone";
-import Test from "./Test";
 import { resizeFile } from "@/lib/utils";
 import { uploadImage } from "@/lib/actions/item.actions";
 
