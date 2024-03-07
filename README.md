@@ -1,5 +1,5 @@
 ## Reminx
-Unlock the door to your memories and secrets with Reminx. A secure and intimate space where you can store cherished moments by creating virtual capsules
+Unlock the door to your memories and secrets with Reminx. A secure and intimate space where you can store your progress or secrets or goals by creating virtual capsules
 
 ## Tech Stack
 * A modern NextJs14 application which uses the App Router, Server Side Rendering and server actions
@@ -12,4 +12,4 @@ Unlock the door to your memories and secrets with Reminx. A secure and intimate 
 
 * NextAuth for authentication
 
-* Packages like Framer-motion, sonner, canvas-confetti, react-dropzone for a better ux and dx
+* Packages like Framer-motion, sonner, canvas-confetti, react-loading-skeleton, react-dropzone for a better ux and dx
