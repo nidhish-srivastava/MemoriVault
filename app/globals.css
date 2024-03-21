@@ -5,6 +5,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+  background-color: black;
+}
 
 @layer utilities {
   .text-balance {
@@ -12,7 +15,3 @@
   }
 }
 
-.skeleton-loading{
-  width: 80%;
-  margin: 4rem auto;
-}

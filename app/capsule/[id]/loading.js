@@ -1,13 +1,8 @@
-import Skeleton from "react-loading-skeleton"
-import 'react-loading-skeleton/dist/skeleton.css'
+import SkeletonLoader from "@/components/ui/SkeletonLoader"
 
 function Loading() {
   return (
-    <div style={{width : "80%",margin : "0 auto"}}>
-      <div className="skeleton-loading">
-        <Skeleton count={5}/>
-        </div> 
-    </div>
+    <SkeletonLoader/>
   )
 }
 

@@ -35,7 +35,7 @@ export default function Modal({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-0"
               >
-                <Dialog.Panel className="lg:w-[45%] w-full transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="lg:w-[45%] w-full transform overflow-hidden bg-gray-900  p-6 text-left align-middle shadow-xl transition-all">
                   {children}
                 </Dialog.Panel>
               </Transition.Child>

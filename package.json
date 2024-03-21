@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.7.18",
     "canvas-confetti": "^1.9.2",
     "cloudinary": "^2.0.0",
+    "clsx": "^2.1.0",
     "framer-motion": "^11.0.3",
     "mongoose": "^8.1.1",
     "nanoid": "^5.0.5",
@@ -23,7 +24,8 @@
     "react-image-file-resizer": "^0.4.8",
     "react-loading-skeleton": "^3.4.0",
     "resend": "^3.1.0",
-    "sonner": "^1.4.0"
+    "sonner": "^1.4.0",
+    "tailwind-merge": "^2.2.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

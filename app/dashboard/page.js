@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import CapsuleModel from "@/models/capsule.model";
 import Link from "next/link";
 import { connectToDB } from "@/lib/dbConnect";
+import DashboardCardIcon from "@/components/Icons/DashboardCard";
 
 async function Capsules() {
   const session = await auth();
@@ -21,7 +22,7 @@ async function Capsules() {
   }
 
   return (
-    <section className="p-4 pt-0 min-w-full h-full">
+    <section className="p-4 pt-0 min-w-full h-full  text-white">
       {capsules.length === 0 ? (
         <div className="flex flex-col justify-center items-center w-full gap-3 mt-4">
           <img
@@ -42,34 +43,21 @@ async function Capsules() {
           </div>
           <div className="grid lg:grid-cols-5 grid-cols-2 md:grid-cols-3 w-full gap-3">
             {capsules.map((capsule) => (
-              <Link href={`/capsule/${capsule.id}`} key={capsule.id}>
-                <div
-                  key={capsule.id}
-                  className="flex flex-col gap-3 justify-between aspect-square bg-orange-200/90 hover:bg-orange-200/70 p-2 w-full h-full ease-in duration-300 relative overflow-hidden"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-36 w-36 absolute -bottom-10 -right-10 text-white/60"
-                    viewBox="0 0 24 24"
-                  >
-                    <g fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 8v4l2.5 2.5"
-                      />
-                      <path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z" />
-                    </g>
-                  </svg>
-                  <div className="flex flex-col gap-1 max-h-[90%] overflow-hidden">
-                    <h3 className="text-xl font-bold z-10">{capsule.name}</h3>
-                    <p className="text-stone-900 z-10">{capsule.description}</p>
-                  </div>
-                  <span className="text-sm text-stone-700 z-10">
-                    {capsule.locked ? "Locked" : "Not locked"}
-                  </span>
-                </div>
-              </Link>
+       <Link href={`/capsule/${capsule.id}`} key={capsule.id}>
+       <div
+         key={capsule.id}
+         className="flex flex-col gap-3 justify-between aspect-square bg-gray-700 hover:bg-gray-600 p-2 w-full h-full ease-in duration-300 relative overflow-hidden"
+       >
+         <DashboardCardIcon/>
+         <div className="flex flex-col gap-1 max-h-[90%] overflow-hidden">
+           <h3 className="text-xl font-bold text-white z-10">{capsule.name}</h3>
+           <p className="text-gray-300 z-10">{capsule.description}</p>
+         </div>
+         <span className="text-sm text-gray-400 z-10">
+           {capsule.locked ? "Locked" : "Not locked"}
+         </span>
+       </div>
+     </Link>
             ))}
           </div>
         </div>
@@ -80,7 +68,7 @@ async function Capsules() {
 
 export default function Dashboard() {
   return (
-    <main className="bg-white font-sans flex flex-col items-center min-h-screen min-w-screen gap-4 overflow-x-hidden relative">
+    <main className=" font-sans flex flex-col items-center min-h-screen min-w-screen gap-4 overflow-x-hidden relative text-white">
       <Navbar page="Dashboard" />
       <Capsules />
       {/* <Footer /> */}
