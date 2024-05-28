@@ -19,7 +19,7 @@ export default function ViewNote({ note }) {
       </button>
       <Modal isOpen={open} closeModal={() => setOpen(false)}>
         <div className="flex flex-col gap-3 font-sans">
-          <div className="flex justify-between">
+          <div className="flex justify-between text-white">
             <h2 className="text-2xl font-bold leading-none">Note</h2>
             <button
               className="text-base text-stone-900 max-w-max focus:outline-none"
@@ -28,7 +28,7 @@ export default function ViewNote({ note }) {
               <XIcon />
             </button>
           </div>
-          <p className="text-stone-700 overflow-scroll scrollbar-thin scrollbar-track-transparent scrollbar-thumb-orange-500 max-h-[300px]">
+          <p className="text-white py-4 overflow-scroll scrollbar-thin scrollbar-track-transparent scrollbar-thumb-orange-500 max-h-[300px]">
             {note}
           </p>
         </div>

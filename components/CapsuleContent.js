@@ -5,10 +5,11 @@ import { useState } from "react";
 import { XIcon } from "./Icons/XIcon";
 import SlideOver from "./ui/SlideOver";
 import { DownloadIcon } from "./Icons/Download";
-import { LinkIcon } from "./Icons/Link";
+// import { LinkIcon } from "./Icons/Link";
 import { CopyIcon } from "./Icons/Copy";
 import ViewNote from "./ViewNote";
 import Image from "next/image";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function CapsuleContent({
   capsule,capsuleItems
@@ -31,6 +32,11 @@ export default function CapsuleContent({
     link.remove();
   };
 
+  const copyHandler = (item) =>{
+    toast.success("Copied to clipboard")
+    navigator.clipboard.writeText(item.notes || "")
+  }
+
   return (
     <>
       <button
@@ -39,6 +45,7 @@ export default function CapsuleContent({
       >
         View contents
       </button>
+      <Toaster/>
       <SlideOver isOpen={open} closeSlideOver={() => setOpen(false)}>
         <div className="flex flex-col gap-6 font-sans over">
           <div className="flex justify-between">
@@ -60,7 +67,6 @@ export default function CapsuleContent({
                   >
                     <div className="text-sm flex justify-between items-center max-w-full gap-2 text-stone-700 h-[10%]">
                       <span>{item.type} ~</span>
-
                       <span>
                         {Intl.DateTimeFormat("en-US", {
                           dateStyle: "short",
@@ -120,9 +126,7 @@ export default function CapsuleContent({
                           <button
                             className="max-w-max hover:text-stone-900 focus:outline-none"
                             title="copy note"
-                            onClick={() =>
-                              navigator.clipboard.writeText(item.notes || "")
-                            }
+                            onClick={()=>copyHandler(item)}
                           >
                             <CopyIcon />
                           </button>
