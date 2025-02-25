@@ -1,18 +1,49 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "MemoriVault",
-  description: "Unlock the door to your memories and secrets with MemoriVault. A secure and intimate space where you can store cherished moments, dark secrets, and heartfelt letters to yourself. Explore the enigma within as you curate a collection of your most personal narratives in this digital sanctuary.",
+  title: "MemoriVault | Secure Your Memories",
+  description:
+    "Unlock the door to your memories and secrets with MemoriVault. Store cherished moments, heartfelt letters, and personal narratives in this secure digital sanctuary.",
+  keywords: [
+    "MemoriVault",
+    "memory storage",
+    "digital vault",
+    "personal journal",
+    "secure notes",
+    "digital memories",
+    "time capsule",
+  ],
+  authors: [{ name: "MemoriVault Team", url: "https://reminx.vercel.app" }],
+  creator: "MemoriVault",
+  openGraph: {
+    title: "MemoriVault | Secure Your Memories",
+    description:
+      "A secure space to preserve your memories and secrets. Revisit your cherished moments anytime with MemoriVault.",
+    url: "https://reminx.vercel.app",
+    siteName: "MemoriVault",
+    locale: "en_US",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {children}
-        </body>
+      <head>
+        <link rel="canonical" href="https://reminx.vercel.app" />
+        <meta charSet="UTF-8" />
+        <meta name="theme-color" content="#FF6B00" />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

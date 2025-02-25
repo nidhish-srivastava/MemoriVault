@@ -7,37 +7,59 @@ import { unlockCapsule } from "@/lib/actions/capsule.actions";
 import { SpinnerIcon } from "./Icons/Spinner";
 import confetti from "canvas-confetti";
 
-export default function CapsuleCountdown({
-  openingDate,
-  capsuleId,
-}) {
-  // years, months, days, hours, minutes, seconds
+export default function CapsuleCountdown({ openingDate, capsuleId }) {
   const [timeLeft, setTimeLeft] = useState([0, 0, 0, 0, 0, 0]);
   const [unlocking, setUnlocking] = useState(false);
+
   useEffect(() => {
-    if (openingDate.getTime() <= Date.now()) return;
-    const getTimeLeft = (openingDate) => {
-      const currentDateObj = new Date();
-      const timeLeft = openingDate.getTime() - currentDateObj.getTime();
-      const seconds = Math.floor((timeLeft / 1000) % 60);
-      const minutes = Math.floor((timeLeft / 1000 / 60) % 60);
-      const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
-      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      const months = Math.floor(timeLeft / (1000 * 60 * 60 * 24 * 30));
-      const years = Math.floor(timeLeft / (1000 * 60 * 60 * 24 * 30 * 12));
+    if (!openingDate || openingDate.getTime() <= Date.now()) return;
+
+    const getTimeLeft = (targetDate) => {
+      const now = new Date();
+
+      if (targetDate <= now) return [0, 0, 0, 0, 0, 0];
+
+      let years = targetDate.getFullYear() - now.getFullYear();
+      let months = targetDate.getMonth() - now.getMonth();
+      let days = targetDate.getDate() - now.getDate();
+      let hours = targetDate.getHours() - now.getHours();
+      let minutes = targetDate.getMinutes() - now.getMinutes();
+      let seconds = targetDate.getSeconds() - now.getSeconds();
+
+      // Adjust for negative values
+      if (seconds < 0) {
+        seconds += 60;  // Add 60 seconds
+        minutes--;      // Borrow 1 minute
+      }
+      if (minutes < 0) {
+        minutes += 60;  // Add 60 minutes
+        hours--;        // Borrow 1 hour
+      }
+      if (hours < 0) {
+        hours += 24;    // Add 24 hours
+        days--;         // Borrow 1 day
+      }
+      if (days < 0) {
+        const previousMonth = new Date(now.getFullYear(), now.getMonth(), 0);  
+        days += previousMonth.getDate();  // Add days from previous month
+        months--;                          // Borrow 1 month
+      }
+      if (months < 0) {
+        months += 12;  // Add 12 months
+        years--;       // Borrow 1 year
+      }
+
       return [years, months, days, hours, minutes, seconds];
     };
+
     const interval = setInterval(() => {
-      const timeLeft = getTimeLeft(openingDate);
-      setTimeLeft(timeLeft);
+      setTimeLeft(getTimeLeft(openingDate));
     }, 1000);
+
     return () => clearInterval(interval);
   }, [openingDate]);
 
-
-  const paddedTimeLeft = timeLeft.map((time) =>
-    time.toString().padStart(2, "0")
-  );
+  const paddedTimeLeft = timeLeft.map((unit) => unit.toString().padStart(2, "0"));
 
   if (openingDate?.getTime() <= Date.now()) {
     return (
@@ -46,24 +68,16 @@ export default function CapsuleCountdown({
         onClick={async () => {
           setUnlocking(true);
           await unlockCapsule(capsuleId);
-          confetti({
-            particleCount: 100,
-            spread: 70,
-            origin: { y: 0.6 },
-          });
-
+          confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
           toast.success("Capsule unlocked!");
           setUnlocking(false);
         }}
       >
-        {unlocking ? (
-          <SpinnerIcon className="w-5 h-5 mr-1 inline-block" />
-        ) : null}
+        {unlocking && <SpinnerIcon className="w-5 h-5 mr-1 inline-block" />}
         {unlocking ? "Unlocking..." : "Unlock capsule"}
       </button>
     );
   }
-
 
   return (
     <p

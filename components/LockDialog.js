@@ -43,7 +43,7 @@ export default function LockDialog({ capsule }) {
         <Modal isOpen={open} closeModal={() => setOpen(false)}>
           <div className="flex flex-col gap-3 font-sans">
             <div className="flex justify-between">
-              <h2 className="text-2xl font-bold leading-none">Lock capsule</h2>
+              <h2 className="text-2xl font-bold text-stone-50 leading-none">Lock capsule</h2>
               <button
                 className="text-base text-stone-900 max-w-max focus:outline-none"
                 onClick={() => setOpen(false)}
@@ -69,7 +69,7 @@ export default function LockDialog({ capsule }) {
               }}
             >
               <div className="flex flex-col gap-1">
-                <label htmlFor="title">
+                <label htmlFor="title" className="text-stone-50">
                   When do you want to open this capsule?
                 </label>
                 <input
