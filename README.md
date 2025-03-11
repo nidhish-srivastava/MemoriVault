@@ -1,4 +1,4 @@
-## MemoriVault
+## SecretVault
 Unlock the door to your memories and secrets with Reminx. A secure and intimate space where you can store your progress or secrets or goals by creating virtual capsules
 
 ## Tech Stack

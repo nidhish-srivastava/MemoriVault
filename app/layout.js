@@ -4,11 +4,11 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "MemoriVault | Secure Your Memories",
+  title: "SecretVault | Secure Your Memories",
   description:
-    "Unlock the door to your memories and secrets with MemoriVault. Store cherished moments, heartfelt letters, and personal narratives in this secure digital sanctuary.",
+    "Unlock the door to your memories and secrets with SecretVault. Store cherished moments, heartfelt letters, and personal narratives in this secure digital sanctuary.",
   keywords: [
-    "MemoriVault",
+    "SecretVault",
     "memory storage",
     "digital vault",
     "personal journal",
@@ -16,14 +16,14 @@ export const metadata = {
     "digital memories",
     "time capsule",
   ],
-  authors: [{ name: "MemoriVault Team", url: "https://reminx.vercel.app" }],
-  creator: "MemoriVault",
+  authors: [{ name: "SecretVault Team", url: "https://reminx.vercel.app" }],
+  creator: "SecretVault",
   openGraph: {
-    title: "MemoriVault | Secure Your Memories",
+    title: "SecretVault | Secure Your Memories",
     description:
-      "A secure space to preserve your memories and secrets. Revisit your cherished moments anytime with MemoriVault.",
+      "A secure space to preserve your memories and secrets. Revisit your cherished moments anytime with SecretVault.",
     url: "https://reminx.vercel.app",
-    siteName: "MemoriVault",
+    siteName: "SecretVault",
     locale: "en_US",
     type: "website",
   },

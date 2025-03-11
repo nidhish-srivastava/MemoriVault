@@ -18,7 +18,7 @@ export default function Navbar() {
     <div className="p-4 w-full flex justify-between items-center text-white">
       {/* Set text color to white and background to dark gray */}
       <Link href={`/`} className={`text-3xl text-orange-400 font-bold ${raleway.className}`}>
-        MemoriVault
+        SecretVault
       </Link>
       <SideStuff />
     </div>

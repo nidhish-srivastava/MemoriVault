@@ -6,7 +6,6 @@ const ItemSchema = new mongoose.Schema({
    notes : {type:String},
    type : {type:String},
    image : {type:String}
-//    images : {type : [String]}
 },
 {
     timestamps : true

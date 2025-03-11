@@ -13,7 +13,7 @@ export default function Home() {
           here.
         </h2>
         <p className="text-xl font-light mt-3 text-center">
-          With MemoriVault, you can securely store your most sensitive information, memories, and secrets, locking them away until the perfect moment arises. Whether it's cherished memories, vital passwords, or confidential access keys, MemoriVault ensures they're safely stored, ready to be unlocked when the time is right.
+          With SecretVault, you can securely store your most sensitive information, memories, and secrets, locking them away until the perfect moment arises. Whether it's cherished memories, vital passwords, or confidential access keys, SecretVault ensures they're safely stored, ready to be unlocked when the time is right.
         </p>
       </div>
       <div className="grid grid-cols-5 gap-10 py-4 w-[95%] mx-auto">
